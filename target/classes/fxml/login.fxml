@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetracker.controller.LoginController" style="-fx-background-color: #000000;">
+   <center>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label text="WorkWave" textFill="#ffffff">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="Please sign in to continue" textFill="#e0e0e0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER" spacing="10.0" prefWidth="300.0">
+               <children>
+                  <Label text="Username:" textFill="#ffffff" alignment="CENTER_LEFT" prefWidth="300.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernameField" promptText="Enter username" prefWidth="300.0" style="-fx-background-radius: 5; -fx-background-color: #2a2a2a; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #888888;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10.0" prefWidth="300.0">
+               <children>
+                  <Label text="Password:" textFill="#ffffff" alignment="CENTER_LEFT" prefWidth="300.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordField" promptText="Enter password" prefWidth="300.0" style="-fx-background-radius: 5; -fx-background-color: #2a2a2a; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #888888;" />
+               </children>
+            </VBox>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefWidth="300.0" style="-fx-background-color: #007bff; -fx-text-fill: #ffffff; -fx-background-radius: 5;" text="Sign In">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="errorLabel" textFill="#ff6b6b" visible="false" alignment="CENTER" prefWidth="300.0" wrapText="true">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="300.0" style="-fx-background-color: #555555;" />
+            <VBox alignment="CENTER" spacing="8.0" style="-fx-border-color: #555555; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-color: #2a2a2a; -fx-background-radius: 5;">
+               <children>
+                  <Label text="Demo Accounts:" textFill="#ffffff">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Admin: admin / admin123" textFill="#e0e0e0" alignment="CENTER">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label text="PM: pm1 / pm123" textFill="#e0e0e0" alignment="CENTER">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label text="Dev: dev1 / dev123" textFill="#e0e0e0" alignment="CENTER">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="20.0" right="20.0" top="12.0" />
+               </padding>
+            </VBox>
+            <Label text="Please use demo account to sign in for now" textFill="#ff6b6b" alignment="CENTER" wrapText="true" prefWidth="300.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

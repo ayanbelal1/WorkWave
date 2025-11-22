@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetracker.controller.ProjectManagerDashboardController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #28a745; -fx-padding: 15;">
+         <children>
+            <Label text="Project Manager Dashboard" textFill="white">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="welcomeLabel" textFill="white">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #dc3545; -fx-text-fill: white;" text="Logout" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <TabPane tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Task Assignment">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Task Management">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="assignTaskButton" mnemonicParsing="false" onAction="#handleAssignTask" style="-fx-background-color: #007bff; -fx-text-fill: white;" text="Assign New Task" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tasksTable" prefHeight="450.0">
+                           <columns>
+                              <TableColumn fx:id="taskIdColumn" prefWidth="50.0" text="ID" />
+                              <TableColumn fx:id="taskTitleColumn" prefWidth="200.0" text="Task Title" />
+                              <TableColumn fx:id="projectColumn" prefWidth="150.0" text="Project" />
+                              <TableColumn fx:id="assigneeColumn" prefWidth="120.0" text="Assignee" />
+                              <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+                              <TableColumn fx:id="dueDateColumn" prefWidth="100.0" text="Due Date" />
+                              <TableColumn fx:id="estimatedHoursColumn" prefWidth="80.0" text="Est. Hours" />
+                              <TableColumn fx:id="actualHoursColumn" prefWidth="80.0" text="Actual Hours" />
+                           </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Time Tracking Monitor">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label text="Time Distribution Overview">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="20.0">
+                           <children>
+                              <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Time by Project">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <PieChart fx:id="projectTimeChart" prefHeight="300.0" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Time by Team Member">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <BarChart fx:id="memberTimeChart" prefHeight="300.0">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Progress Review">
+               <content>
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label text="Project Progress Summary">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="progressTable" prefHeight="400.0">
+                           <columns>
+                              <TableColumn fx:id="progressProjectColumn" prefWidth="200.0" text="Project" />
+                              <TableColumn fx:id="totalTasksColumn" prefWidth="100.0" text="Total Tasks" />
+                              <TableColumn fx:id="completedTasksColumn" prefWidth="120.0" text="Completed" />
+                              <TableColumn fx:id="inProgressTasksColumn" prefWidth="120.0" text="In Progress" />
+                              <TableColumn fx:id="pendingTasksColumn" prefWidth="100.0" text="Pending" />
+                              <TableColumn fx:id="progressPercentColumn" prefWidth="100.0" text="Progress %" />
+                              <TableColumn fx:id="progressBarColumn" prefWidth="150.0" text="Progress" />
+                           </columns>
+                        </TableView>
+                        <HBox spacing="15.0">
+                           <children>
+                              <Button fx:id="refreshProgressButton" mnemonicParsing="false" onAction="#handleRefreshProgress" style="-fx-background-color: #17a2b8; -fx-text-fill: white;" text="Refresh Data" />
+                              <Button fx:id="exportReportButton" mnemonicParsing="false" onAction="#handleExportReport" style="-fx-background-color: #ffc107; -fx-text-fill: black;" text="Export Report" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
